@@ -2,11 +2,10 @@ import React from "react";
 import uknown from "../assets/uknown.jpg";
 
 const PopularList = ({ popularMovies }) => {
-  console.log(popularMovies);
   return (
     <div className="my-4">
       <h1 className="text-[#3EEBE6] md:text-5xl text-3xl font-semibold my-4">
-      The Popular Movies
+        The Popular Movies
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 place-content-center grid-cols-1 gap-4 mt-8">
         {popularMovies.map((popular) => {

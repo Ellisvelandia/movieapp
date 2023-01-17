@@ -2,13 +2,13 @@
 
 #root {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
 body {
-  background-color: #0A0B12;
+  background-color: #0a0b12;
   font-family: "Playfair Display", serif;
 }
 
@@ -35,6 +35,19 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.posterImage {
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.posterImage:hover {
+  opacity: 1;
 }
 
 @media (max-width: 678px) {

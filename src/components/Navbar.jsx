@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { motion } from "framer-motion";
-import logo from "../assets/logo.png";
 import navbar from "../assets/navbar.png";
 
 const Navbar = () => {
@@ -49,7 +48,7 @@ const Navbar = () => {
           >
             <ul className="font-black text-white capitalize text-2xl menu py-4">
               <img
-                src={logo}
+                src={navbar}
                 alt="logoexpress"
                 className="h-28"
                 loading="lazy"
