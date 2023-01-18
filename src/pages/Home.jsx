@@ -28,7 +28,7 @@ const Home = () => {
           <Link
             style={{ textDecoration: "none", color: "white" }}
             key={movie.id}
-            // to={`/movie/${movie.id}`}
+            to={`/movie/${movie.id}`}
           >
             <div className="aspect-square w-full without">
               <img
@@ -37,6 +37,7 @@ const Home = () => {
                 }`}
                 alt={movie.name}
                 className="m-auto block w-full"
+                loading="lazy"
               />
             </div>
             <div className="absolute md:p-20 py-16 px-4 bottom-0 flex flex-col w-full posterImage">
