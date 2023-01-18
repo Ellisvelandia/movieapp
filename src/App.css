@@ -22,6 +22,15 @@ body {
   height: calc(100vh - 80px);
 }
 
+
+.withoutgenre {
+  height: calc(100vh - 230px);
+}
+
+.w-text {
+  height: calc(100vh - 10px);
+}
+
 .logo {
   position: absolute;
   top: 40%;

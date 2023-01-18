@@ -27,6 +27,11 @@ const Navbar = () => {
             Popular
           </Link>
         </motion.li>
+        <motion.li className="md:mx-2" whileHover={{ scale: 1.1 }}>
+          <Link to="/genre" className="hover:text-[#3EEBE6]">
+            Genres
+          </Link>
+        </motion.li>
       </ul>
       <div className="md:hidden">
         <img
@@ -64,6 +69,14 @@ const Navbar = () => {
                   className="hover:text-[#3EEBE6] cursor-pointer"
                 >
                   Popular
+                </Link>
+              </li>
+              <li className="mx-2">
+                <Link
+                  to="/genre"
+                  className="hover:text-[#3EEBE6] cursor-pointer"
+                >
+                  Genres
                 </Link>
               </li>
             </ul>
