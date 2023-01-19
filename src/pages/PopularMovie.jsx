@@ -15,7 +15,7 @@ const PopularMovie = () => {
     getPopular();
   }, []);
 
-  return <PopularList popularMovies={popularMovies} />;
+  return <PopularList popularMovies={popularMovies} key={popularMovies.id}/>;
 };
 
 export default PopularMovie;

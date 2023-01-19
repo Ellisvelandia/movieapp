@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #0a0b12;
+  background-color: #010418;
   font-family: "Playfair Display", serif;
 }
 
@@ -22,9 +22,8 @@ body {
   height: calc(100vh - 80px);
 }
 
-
 .withoutgenre {
-  height: calc(100vh - 230px);
+  height: calc(100vh - 176px);
 }
 
 .w-text {
@@ -73,6 +72,10 @@ body {
 
 .borderRaiusColor {
   border: 2px solid white;
+}
+
+.btn {
+  border: 2px solid #141c5a;
 }
 
 @media (max-width: 678px) {

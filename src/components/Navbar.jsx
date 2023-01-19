@@ -18,17 +18,17 @@ const Navbar = () => {
       </div>
       <ul className="flex items-end w-full justify-start md:p-8 font-black text-white capitalize text-xl invisible md:visible drop-shadow-lg shadow-black">
         <motion.li whileHover={{ scale: 1.1 }} className="md:mx-2">
-          <Link to="/" className="hover:text-[#3EEBE6]">
+          <Link to="/" className="hover:text-[#AEB4C3]">
             Home
           </Link>
         </motion.li>
         <motion.li className="md:mx-2" whileHover={{ scale: 1.1 }}>
-          <Link to="/popular" className="hover:text-[#3EEBE6]">
+          <Link to="/popular" className="hover:text-[#AEB4C3]">
             Popular
           </Link>
         </motion.li>
         <motion.li className="md:mx-2" whileHover={{ scale: 1.1 }}>
-          <Link to="/genre" className="hover:text-[#3EEBE6]">
+          <Link to="/genre" className="hover:text-[#AEB4C3]">
             Genres
           </Link>
         </motion.li>
@@ -59,14 +59,14 @@ const Navbar = () => {
                 loading="lazy"
               />
               <li className="mx-2">
-                <Link to="/" className="hover:text-[#3EEBE6] cursor-pointer">
+                <Link to="/" className="hover:text-[#AEB4C3] cursor-pointer">
                   Home
                 </Link>
               </li>
               <li className="mx-2">
                 <Link
                   to="/popular"
-                  className="hover:text-[#3EEBE6] cursor-pointer"
+                  className="hover:text-[#AEB4C3] cursor-pointer"
                 >
                   Popular
                 </Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
               <li className="mx-2">
                 <Link
                   to="/genre"
-                  className="hover:text-[#3EEBE6] cursor-pointer"
+                  className="hover:text-[#AEB4C3] cursor-pointer"
                 >
                   Genres
                 </Link>

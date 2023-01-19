@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { FiPlay } from "react-icons/fi";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 
@@ -18,17 +19,28 @@ const Genres = () => {
     getGenres();
   }, []);
 
+  useEffect(() => {
+    const getMoviesByGenre = async (genreId) => {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=8bb7f4763d0c0ea36982da5add0ff854&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreId}`
+      );
+      setSelectedGenre(genreId);
+      setMovies(res.data.results);
+    };
+
+    getMoviesByGenre(28);
+  }, []);
+
   const handleGenreClick = async (genreId) => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=8bb7f4763d0c0ea36982da5add0ff854&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreId}`
     );
     setSelectedGenre(genreId);
     setMovies(res.data.results);
-    console.log(res.data.results);
   };
 
   return (
-    <div className="w-full py-4 without">
+    <div className="w-full py-4 without relative">
       <div className="w-full mx-auto h-20">
         <Carousel
           showThumbs={false}
@@ -38,6 +50,7 @@ const Genres = () => {
           showStatus={false}
           centerMode={true}
           showArrows={true}
+          className="relative"
         >
           {genres.map((genre) => (
             <div
@@ -46,16 +59,19 @@ const Genres = () => {
               style={{ cursor: "pointer" }}
               className="inline-block active:scale-90"
             >
-              <h2 className="text-4xl text-[#3EEBE6] textShadows z-5 w-full md:pb-8 pb-12">
+              <button className="btn text-3xl text-white hover:bg-[#0A0B12] textShadows z-5 w-full px-2 md:mb-8 mb-12 rounded shadowbox">
                 {genre.name}
-              </h2>
+              </button>
             </div>
           ))}
         </Carousel>
       </div>
       {selectedGenre && (
         <div className="flex flex-col justify-center h-auto w-full">
-          <div className="grid grid-cols-1 w-full mx-auto place-content-center">
+          <div
+            className="grid grid-cols-1 w-full mx-auto place-content-center relative"
+            style={{ textDecoration: "none", color: "white" }}
+          >
             <Carousel
               showThumbs={false}
               autoPlay={true}
@@ -64,26 +80,15 @@ const Genres = () => {
               showStatus={false}
             >
               {movies.map((movie) => (
-                <Link
-                  to={`/trailer/${movie.id}`}
-                  style={{ textDecoration: "none", color: "white" }}
-                >
-                  <div className="pb-4">
-                    <h2
-                      key={movie.id}
-                      className="text-white text-3xl px-2 textShadows"
-                    >
-                      {movie.title}
-                    </h2>
-                    <div className="aspect-square w-full withoutgenre">
-                      <img
-                        src={`https://image.tmdb.org/t/p/original${
-                          movie && movie.backdrop_path
-                        }`}
-                        alt={movie.name}
-                        className="m-auto block w-full"
-                      />
-                    </div>
+                <div key={movie.id}>
+                  <div className="aspect-square w-full withoutgenre">
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${
+                        movie && movie.backdrop_path
+                      }`}
+                      alt={movie.name}
+                      className="m-auto block w-full"
+                    />
                   </div>
                   <div
                     className="absolute md:p-20 py-16 px-4 bottom-0 flex flex-col w-full posterImage"
@@ -99,11 +104,31 @@ const Genres = () => {
                         <i className="fas fa-star" />
                       </span>
                     </div>
-                    <div className="md:w-1/2 md:text-left text-justify text-md flex mb-1 md:text-lg font-semibold">
+                    <div className="md:w-1/2 md:text-left text-justify text-md flex mb-1 md:text-lg font-semibold ">
                       {movie ? movie.overview : ""}
                     </div>
+
+                    <div className="flex gap-4 mt-2">
+                      <Link to={`/trailer/${movie.id}`}>
+                        <button
+                          className="borderRaiusColor  md:text-lg text-base p-3 rounded-md flex hover:bg-[#0A0B12] active:scale-90"
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          Play
+                          <FiPlay className="w-5 mt-1.5" />
+                        </button>
+                      </Link>
+                      <Link to={`/movie/${movie.id}`}>
+                        <button
+                          className="borderRaiusColor md:text-lg text-base p-3 rounded-md inline-block hover:bg-[#0A0B12] active:scale-90"
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          Watch more
+                        </button>
+                      </Link>
+                    </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </Carousel>
           </div>

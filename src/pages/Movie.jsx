@@ -72,14 +72,14 @@ const Movie = () => {
             <div className="md:m-4 m-2 w-full flex md:flex-row flex-wrap justify-center">
               {currentMovieDetail && currentMovieDetail.genres
                 ? currentMovieDetail.genres.map((genre) => (
-                    <>
+                    <div key={genre.id} className="md:my-0 my-3">
                       <span
                         className="px-4 py-2 rounded-3xl mr-4 my-1 borderRaiusColor"
                         id={genre.id}
                       >
                         {genre.name}
                       </span>
-                    </>
+                    </div>
                   ))
                 : ""}
             </div>
@@ -120,7 +120,7 @@ const Movie = () => {
         {currentMovieDetail &&
           currentMovieDetail.production_companies &&
           currentMovieDetail.production_companies.map((company) => (
-            <>
+            <div key={company.id}>
               {company.logo_path && (
                 <span
                   className="flex flex-col align-center justify-center pb-4"
@@ -138,7 +138,7 @@ const Movie = () => {
                   </span>
                 </span>
               )}
-            </>
+            </div>
           ))}
       </div>
     </div>
